@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .login-container {
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 250px;
+        }
+        h2 {
+            text-align: center; /* Center the text */
+        }
+        input[type="text"], input[type="password"], input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            display: block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: orangered;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: orangered;
+        }
+        .text-color{
+            color:orangered;
+        }
+    </style>
+</head>
+<body>
+<div class="login-container">
+    <h2>Sign Up</h2>
+    <form action="#" th:action="@{/signup}" th:object="${user}" method="post">
+        <input type="text" id="email" name="email" placeholder="Email" required><br>
+        <input type="password" id="password" name="password" placeholder="Password" required><br>
+        <input type="text" id="name" name="Name" placeholder="Name" required><br>
+        <label for="role">Choose role:</label>
+        <select name="role" id="role">
+            <option value="student">Student</option>
+        </select>
+        <input type="submit" value="signup">
+    </form>
+
+    <h5>Already enrolled? Sign In</h5>
+    <div class="text-color"><a class="text-color" href="/login"><h6>Sign In</h6></a></div>
+</div>
+</body>
+</html>
