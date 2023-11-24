@@ -86,9 +86,17 @@
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <a href="/">Home</a>
-    <a href="#" >Profile</a>
-    <a href="/login" >Sign In</a>
-    <a href="/logout" >Logout</a>
+
+    <th:block th:if="${loggedIn}">
+        <a href="#">Profile</a>
+        <a href="/logout">Logout</a>
+    </th:block>
+
+
+    <th:block th:unless="${loggedIn}">
+        <a href="/login">Sign In</a>
+    </th:block>
+
     <a href="#">Extracurricular</a>
 </div>
 
