@@ -3,11 +3,15 @@ package com.schoolsystem.SchoolSystem.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class SchoolController {
     @GetMapping("/")
     public String home(){
-        return "home";
+
+            return "home";
+
     }
 
     @GetMapping("/login")
@@ -17,5 +21,10 @@ public class SchoolController {
     @GetMapping("/signup")
     public String signup(){
         return "signup";
+    }
+
+    @GetMapping("/logout")
+    public String logout(){
+        return "home";
     }
 }
