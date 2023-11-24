@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User Profile</title>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .profile-container {
+            background-color: orangered;
+            border-radius: 20px;
+            color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            width: 450px;
+            height: 250px;
+        }
+        .profile-info {
+            margin-bottom: 10px;
+        }
+        .label {
+            font-weight: bold;
+        }
+        .fees {
+            height: 30px;
+            background-color: white;
+            color: black;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+
+        }
+
+
+    </style>
+</head>
+<body>
+
+<div class="profile-container">
+    <div class="profile-info">
+        <span class="label">Name:</span>
+        <span class="value">John Doe</span>
+    </div>
+    <div class="profile-info">
+        <span class="label">Role:</span>
+        <span class="value">Student</span>
+    </div>
+    <div class="profile-info">
+        <span class="label">Email:</span>
+        <span class="value">john@example.com</span>
+    </div>
+    <div class="profile-info">
+        <span class="label">Class:</span>
+        <span class="value">10th Grade</span>
+    </div>
+    <div class="profile-info">
+        <span class="label">Section:</span>
+        <span class="value">A</span>
+    </div>
+
+    <button id="fees" class="fees">Pay Fees</button>
+
+</div>
+
+<script>
+    // Get the button element
+    var button = document.getElementById('fees');
+
+    // Add a click event listener
+    button.addEventListener('click', function() {
+        // Perform an action when the button is clicked
+        window.location.href="/home";
+        // Add your action here
+    });
+</script>
+
+
+</body>
+</html>

@@ -15,6 +15,11 @@ public class HomeController {
         model.addAttribute("loggedIn", false);
         return "home";
     }
+    @GetMapping("/home")
+    public String homeloggedin(Model model) {
+        model.addAttribute("loggedIn", true);
+        return "home";
+    }
     @GetMapping("/login")
     public String login(){
         return "login";
@@ -24,4 +29,11 @@ public class HomeController {
         model.addAttribute("loggedIn", false);
         return "home";
     }
+
+    @GetMapping("/profile")
+    public String profile(Model model){
+        model.addAttribute("loggedIn", true);
+        return "profile";
+    }
+
 }
