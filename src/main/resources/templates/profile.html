@@ -48,23 +48,40 @@
 <div class="profile-container">
     <div class="profile-info">
         <span class="label">Name:</span>
-        <span class="value">John Doe</span>
+        <th:block>
+            <tr th:each="user:${users}">
+                <td th:text="${user.name}"></td>
+            </tr>
+        </th:block>
+
     </div>
     <div class="profile-info">
         <span class="label">Role:</span>
-        <span class="value">Student</span>
+        <th:block >
+            <tr th:each="user : ${users}">
+                <td th:text="${user.role}"></td>
+            </tr>
+        </th:block>
     </div>
     <div class="profile-info">
         <span class="label">Email:</span>
-        <span class="value">john@example.com</span>
+        <th:block >
+            <tr th:each="user : ${users}">
+                <td th:text="${user.email}"></td>
+            </tr>
+        </th:block>
     </div>
     <div class="profile-info">
         <span class="label">Class:</span>
-        <span class="value">10th Grade</span>
+        <th:block>
+            <span class="value">1</span>
+        </th:block>
     </div>
     <div class="profile-info">
         <span class="label">Section:</span>
-        <span class="value">A</span>
+        <th:block>
+            <span class="value">2</span>
+        </th:block>
     </div>
 
     <button id="fees" class="fees">Pay Fees</button>
