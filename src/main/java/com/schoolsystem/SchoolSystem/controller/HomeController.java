@@ -34,12 +34,28 @@ public class HomeController {
         return "home";
     }
 
+    @GetMapping("/signup")
+    public String signup(Model model){
+        model.addAttribute("loggedIn", false);
+        return "signup";
+    }
+
 
     @GetMapping("/profile")
     public String profile(@ModelAttribute("users") User users,Model model){
             model.addAttribute("users",users);
             return "profile";
 
+    }
+    @GetMapping("/student")
+    public String student(){
+        return "student";
+    }
+
+    @GetMapping("/teacher")
+    public String teacher(){
+
+        return "teacher";
     }
 
 

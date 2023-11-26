@@ -8,7 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
 @Controller
@@ -26,6 +25,7 @@ public class LoginController {
             User users=service.showUser(user.getEmail());
             model.addAttribute("loggedIn", true);
             model.addAttribute("users", users);
+            model.addAttribute("redirectUrl", "/"+users.getRole());
             return "home";
         }
         else{

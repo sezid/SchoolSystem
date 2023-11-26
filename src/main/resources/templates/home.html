@@ -70,8 +70,21 @@
 
         .main {
             margin-right: 200px; /* Adjusting main content for right navbar */
-            padding: 20px;
+            padding-left: 130px;
+            padding-top: 130px;
+            text-align: center;
         }
+
+        .button {
+            background-color: orangered;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-family: Arial, sans-serif;
+        }
+
     </style>
 </head>
 <body>
@@ -86,16 +99,17 @@
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <a href="/">Home</a>
-
     <th:block th:if="${loggedIn}" >
         <a href="/profile">Profile</a>
         <a href="/logout">Logout</a>
     </th:block>
-    <th:block>
-    <a href="#"></a>
-    </th:block>
+
     <th:block th:unless="${loggedIn}">
         <a href="/login">Sign In</a>
+    </th:block>
+
+    <th:block th:if="${loggedIn}" >
+        <a th:href="@{${redirectUrl}}">Page</a>>
     </th:block>
 
     <a href="#">Extracurricular</a>
@@ -103,10 +117,13 @@
 
 <!-- Main Content Section -->
 <div class="main">
+    <img src="school.jpg" alt="Your Image" style="width: 100%; max-width: 500px;">
     <h1>Welcome to XYZ School</h1>
     <p>Hello Everyone welcome to XYZ school!!</p>
     <!-- Image tag to display pictures -->
-<!--    <img src="your-image-url.jpg" alt="Your Image" style="width: 100%; max-width: 500px;">-->
+    <h3>New Student?</h3>
+    <button class="button" onclick="window.location.href='/signup'">Sign Up</button>
+
 </div>
 
 <!-- JavaScript to Open/Close Side Navigation Menu -->
