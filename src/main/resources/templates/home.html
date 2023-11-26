@@ -62,9 +62,9 @@
             font-size: 17px;
         }
         .navbar a:hover {
-            background-color: #ddd;
+            background-color: white;
             color: black;
-            border-radius: 20px;
+
 
         }
 
@@ -91,7 +91,7 @@
 
 <!-- Navigation Bar with Logo -->
 <div class="navbar">
-    <a href="/" class="logo" style="font-size: 24px;">School Logo</a>
+    <a href="/" class="logo" style="font-size: 24px;"><img src="logo.png" alt="Image" width="50" height="30"></a>
     <a href="javascript:void(0)" style="font-size: 24px;" onclick="openNav()">Menu &#9776;</a>
 </div>
 
@@ -103,27 +103,25 @@
         <a href="/profile">Profile</a>
         <a href="/logout">Logout</a>
     </th:block>
-
     <th:block th:unless="${loggedIn}">
         <a href="/login">Sign In</a>
     </th:block>
-
     <th:block th:if="${loggedIn}" >
-        <a th:href="@{${redirectUrl}}">Page</a>>
+        <a th:href="@{${redirectUrl}}">My Page</a>>
     </th:block>
-
     <a href="#">Extracurricular</a>
 </div>
 
 <!-- Main Content Section -->
 <div class="main">
-    <img src="school.jpg" alt="Your Image" style="width: 100%; max-width: 500px;">
+    <img src="school.jpg" alt="Your Image" style="width: 100%; max-width: 500px; max-height: 600px; height: 100%">
     <h1>Welcome to XYZ School</h1>
     <p>Hello Everyone welcome to XYZ school!!</p>
     <!-- Image tag to display pictures -->
+    <th:block th:unless="${loggedIn}">
     <h3>New Student?</h3>
     <button class="button" onclick="window.location.href='/signup'">Sign Up</button>
-
+    </th:block>
 </div>
 
 <!-- JavaScript to Open/Close Side Navigation Menu -->

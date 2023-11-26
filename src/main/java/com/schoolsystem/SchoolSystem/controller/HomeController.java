@@ -58,5 +58,11 @@ public class HomeController {
         return "teacher";
     }
 
+    @GetMapping("/admin")
+    public String admin(){
+        return "admin";
+    }
+
+
 
 }
