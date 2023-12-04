@@ -17,7 +17,7 @@ public class Student {
         this.id = id;
         this.name = name;
         this.email = email;
-        ClassNo = classNo;
+        this.ClassNo = classNo;
         this.section = section;
     }
 

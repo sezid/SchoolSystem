@@ -20,6 +20,10 @@ public class Teacher {
         this.section = section;
     }
 
+    public Teacher() {
+        super();
+    }
+
     public Long getId() {
         return id;
     }
