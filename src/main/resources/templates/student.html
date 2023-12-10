@@ -69,7 +69,7 @@
         }
 
         .main {
-            margin-right: 200px; /* Adjusting main content for right navbar */
+            margin-right: 200px;
             padding-left: 130px;
             padding-top: 130px;
             text-align: center;
@@ -120,7 +120,7 @@
     <!-- Image tag to display pictures -->
     <th:block th:unless="${loggedIn}">
 
-        <button class="button" onclick="window.location.href='#'">Add Subject</button>
+        <button class="button" onclick="window.location.href='/subject'">Add Subject</button>
         <button class="button" onclick="window.location.href='#'">Check Grades</button>
         <button class="button" onclick="window.location.href='#'">Check Routine</button>
     </th:block>

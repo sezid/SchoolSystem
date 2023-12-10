@@ -1,6 +1,9 @@
 package com.schoolsystem.SchoolSystem.controller;
 
 import com.schoolsystem.SchoolSystem.entity.User;
+import com.schoolsystem.SchoolSystem.service.StudentService;
+import com.schoolsystem.SchoolSystem.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +15,11 @@ import org.springframework.web.bind.annotation.*;
 @SessionAttributes("users")
 public class HomeController {
 
+    @Autowired
+    private UserService userService;
 
+    @Autowired
+    private StudentService studentService;
     @GetMapping("/")
     public String home(Model model) {
         model.addAttribute("loggedIn", false);
@@ -30,12 +37,13 @@ public class HomeController {
 
     @GetMapping("/logout")
     public String logout(Model model){
+
         model.addAttribute("loggedIn", false);
         return "home";
     }
 
     @GetMapping("/signup")
-    public String signup(Model model){
+    public String signup( Model model){
         model.addAttribute("loggedIn", false);
         return "signup";
     }
@@ -61,6 +69,12 @@ public class HomeController {
     @GetMapping("/admin")
     public String admin(){
         return "admin";
+    }
+
+    @PostMapping("/signup")
+    public String register(@ModelAttribute("user") User user){
+        userService.addUser(user);
+        return "login";
     }
 
 

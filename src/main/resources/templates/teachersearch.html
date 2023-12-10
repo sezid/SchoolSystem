@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Teacher</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #ff6600;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #ff6600;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+<h2>Teacher Search</h2>
+
+<!-- Search form -->
+<form th:action="@{/searchTeacher}" method="get">
+    <label for="searchId">Enter Teacher Name:</label>
+    <input type="text" id="searchId" name="name" placeholder="Teacher Name...">
+    <button type="submit">Search</button>
+</form>
+
+<!-- Display search results -->
+<h2>Teachers List</h2>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Class</th>
+        <th>Email</th>
+        <th>Section</th>
+    </tr>
+    </thead>
+    <tbody>
+    <th:block>
+        <tr th:each="teacher : ${teachers}">
+            <td th:text="${teacher.id}"></td>
+            <td th:text="${teacher.name}"></td>
+            <td th:text="${teacher.classNo}"></td>
+            <td th:text="${teacher.email}"></td>
+            <td th:text="${teacher.section}"></td>
+            <td><button onclick="window.location.href='/teacheredit'"
+            >Edit</button></td>
+
+        </tr>
+    </th:block>
+    </tbody>
+</table>
+<!-- Display message if student not found -->
+<div th:if="${resultMessage}">
+    <p>Teacher not found</p>
+</div>
+</body>
+</html>

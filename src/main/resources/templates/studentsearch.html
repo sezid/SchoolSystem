@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Students</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #ff6600;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #ff6600;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+<h2>Students Search</h2>
+
+<!-- Search form -->
+<form th:action="@{/searchStudent}" method="get">
+    <label for="searchId">Enter Student Name:</label>
+    <input type="text" id="searchId" name="name" placeholder="Student Name...">
+    <button type="submit">Search</button>
+</form>
+
+<!-- Display search results -->
+<h2>Student List</h2>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Class</th>
+        <th>Email</th>
+        <th>Section</th>
+    </tr>
+    </thead>
+    <tbody>
+    <th:block>
+        <tr th:each="student : ${students}">
+            <td th:text="${student.id}"></td>
+            <td th:text="${student.name}"></td>
+            <td th:text="${student.ClassNo}"></td>
+            <td th:text="${student.email}"></td>
+            <td th:text="${student.section}"></td>
+            <td><button onclick="window.location.href='/studentedit'"
+            >Edit</button></td>
+
+        </tr>
+    </th:block>
+    </tbody>
+</table>
+
+<div th:if="${resultMessage}">
+    <p>Student not found</p>
+</div>
+
+
+</body>
+</html>

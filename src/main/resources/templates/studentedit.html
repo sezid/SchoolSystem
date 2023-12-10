@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <title>Add/Update Student Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #ff6600;
+        }
+
+        form {
+            max-width: 400px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            color: #333;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        input[type="text"],
+        input[type="email"] {
+            width: calc(100% - 12px);
+            padding: 8px;
+            margin-bottom: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #ff6600;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #ff8533;
+        }
+    </style>
+</head>
+<body>
+<h2 style="text-align: center; ">Add or Update Student Details</h2>
+
+<form th:action="@{/studentsedit}" method="post">
+    <label for="name">ID:</label><br>
+    <input type="text" id="id" name="id" required><br>
+
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name" required><br>
+
+    <label for="email">Email:</label><br>
+    <input type="name" id="email" name="email" required><br>
+
+    <label for="studentClass">Class:</label><br>
+    <input type="text" id="studentClass" name="classNo" required><br>
+
+    <label for="section">Section:</label><br>
+    <input type="text" id="section" name="section"  required><br><br>
+
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>
